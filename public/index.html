@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MIT 8103 · Portfolio generator</title><link rel="preload" href="/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/style.css"></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="wordmark" href="/">MIT 8103 <span>Portfolio generator</span></a><a href="https://github.com/arizonal2014/MIT8103_Codelab" target="_blank" rel="noopener">Guide ↗</a></header>
+<main id="main">
+ <h1>Your database portfolio.</h1>
+ <nav aria-label="Portfolio steps"><ol class="journey"><li id="step-1" aria-current="step"><span>1</span> Details</li><li id="step-2"><span>2</span> Build</li><li id="step-3"><span>3</span> Repository</li></ol></nav>
+ <section id="details-section" aria-labelledby="details-title">
+  <h2 id="details-title" tabindex="-1">Enter your details</h2>
+  <div class="connection"><p id="connection-status" role="status">Checking GitHub…</p><button type="button" class="secondary" id="connect-github" hidden>Connect GitHub</button></div>
+  <div id="login-instructions" hidden><p id="login-message" role="status"></p><p><code id="login-code"></code> <a id="login-link" href="https://github.com/login/device" target="_blank" rel="noopener">Open GitHub ↗</a></p></div>
+  <form id="details" novalidate>
+   <div class="name-row"><label>First name<input name="firstName" autocomplete="given-name" maxlength="80" required aria-describedby="firstName-error"><span class="error" id="firstName-error"></span></label><label>Surname<input name="surname" autocomplete="family-name" maxlength="80" required aria-describedby="surname-error"><span class="error" id="surname-error"></span></label></div>
+   <label>Student ID<input name="studentId" maxlength="40" required aria-describedby="studentId-error"><span class="error" id="studentId-error"></span></label>
+   <label>Case study<textarea name="caseStudy" rows="3" maxlength="3000" placeholder="For example: a library borrowing system." required aria-describedby="caseStudy-error"></textarea><span class="error" id="caseStudy-error"></span></label>
+   <p class="filename-preview">Private repository <code id="prefix">Surname_Firstname_StudentID</code></p>
+   <div id="preflight-feedback" class="preflight-feedback" role="status" hidden><p id="preflight-message"></p><div class="actions" id="preflight-actions"></div></div>
+   <p class="error" id="form-error" role="alert"></p>
+   <div class="actions"><button id="create-portfolio" type="submit" disabled>Create portfolio <span aria-hidden="true">→</span></button><button class="text-button" type="button" id="return-to-run" hidden>Return to saved portfolio</button></div>
+  </form>
+ </section>
+ <section id="build-section" aria-labelledby="build-title" hidden>
+  <div class="run-heading"><span class="spinner" id="build-spinner" aria-hidden="true"></span><div><h2 id="build-title" tabindex="-1">Building your portfolio</h2><p id="build-case"></p></div></div>
+  <div class="progress-caption"><span id="build-message" role="status" aria-live="polite">Creating your repository…</span><span id="elapsed">0s</span></div>
+  <ol class="pipeline" id="pipeline"></ol>
+  <p class="error" id="build-error" role="alert" hidden></p>
+  <p class="hint" id="build-recovery" hidden></p>
+  <div class="actions"><button type="button" id="back-to-repository" hidden>Back to repository</button><button type="button" id="retry" hidden>Retry remaining stages</button><button type="button" class="secondary" id="revise-case" hidden>Edit case study</button><button type="button" class="secondary" id="reconnect-github" hidden>Reconnect GitHub</button><a class="button secondary" id="running-repository" target="_blank" rel="noopener" hidden>View repository ↗</a></div>
+ </section>
+ <section id="result-section" aria-labelledby="result-title" hidden>
+  <h2 id="result-title" tabindex="-1">Your portfolio is ready.</h2><p id="result-case"></p>
+  <p id="result-count"></p>
+  <div class="actions"><a id="open-repository" class="button" target="_blank" rel="noopener">Open my portfolio ↗</a><a id="edit-summary" target="_blank" rel="noopener">Edit final summary ↗</a></div>
+  <p class="hint">Review and personalise the reflection in the summary before submission.</p>
+  <details class="disclosure"><summary>Downloads and run details</summary><div class="disclosure-body"><ul class="download-links"><li><a id="summary-pdf" target="_blank" rel="noopener">Final summary (PDF)</a></li><li><a id="summary-source" target="_blank" rel="noopener">Editable summary</a></li><li><a id="portfolio-zip" download>Portfolio ZIP</a></li><li><a id="quick-guide" target="_blank" rel="noopener">Short guide</a></li></ul><p class="hint">After editing the summary, export an updated PDF for submission.</p><button type="button" class="text-button" id="view-pipeline">View completed stages</button></div></details>
+  <button type="button" class="text-button" id="new-portfolio">Start another portfolio</button>
+ </section>
+</main><footer class="site-footer"><span>Advanced Database Systems</span><span>By Perete Harrison</span></footer><script type="module" src="/app.mjs"></script>
+</body></html>
